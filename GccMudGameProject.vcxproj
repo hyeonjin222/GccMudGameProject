@@ -163,6 +163,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Investment.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NewsData.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Stock.cpp" />
   </ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="ConsoleUI.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Investment.h" />
+    <ClInclude Include="NewsData.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Stock.h" />
   </ItemGroup>
