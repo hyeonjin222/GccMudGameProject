@@ -3,9 +3,8 @@
 
 
     //코인 생성자(종목명, 초기 가격, 테마)
-Coin::Coin(const string& n, float p, const string& t)
+Coin::Coin(const string& n, float p, const string& t) 
     : Investment(n, p, t) {}
-
     // 코인 일일 변동폭 추가 로직
 void Coin::UpdatePrice() {
     // 코인 일일 변동폭 -15% ~ +15%

@@ -34,14 +34,14 @@ GameManager::~GameManager() {
  * 시장에 상장된 10개의 기본 종목(주식 8개, 코인 2개)을 설정합니다.
  */
 void GameManager::InitM() {
-    market.emplace_back(make_unique<Stock>("삼성전자", 75000, "반도체"));
-    market.emplace_back(make_unique<Stock>("엔비디아", 1200000, "반도체"));
-    market.emplace_back(make_unique<Stock>("네이버", 210000, "IT"));
-    market.emplace_back(make_unique<Stock>("카카오", 55000, "IT"));
-    market.emplace_back(make_unique<Stock>("테슬라", 250000, "전기차"));
-    market.emplace_back(make_unique<Stock>("에코프로", 580000, "전기차"));
-    market.emplace_back(make_unique<Stock>("펄어비스", 40000, "게임"));
-    market.emplace_back(make_unique<Stock>("크래프톤", 250000, "게임"));
+    market.emplace_back(make_unique<Stock>("삼성전자", 75000, "국내/반도체"));
+    market.emplace_back(make_unique<Stock>("엔비디아", 1200000, "해외/반도체"));
+    market.emplace_back(make_unique<Stock>("네이버", 210000, "국내/IT"));
+    market.emplace_back(make_unique<Stock>("카카오", 55000, "국내/IT"));
+    market.emplace_back(make_unique<Stock>("테슬라", 250000, "해외/전기차"));
+    market.emplace_back(make_unique<Stock>("에코프로", 580000, "국내/전기차"));
+    market.emplace_back(make_unique<Stock>("펄어비스", 40000, "국내/게임"));
+    market.emplace_back(make_unique<Stock>("크래프톤", 250000, "국내/게임"));
     market.emplace_back(make_unique<Coin>("비트코인", 95000000, "코인"));
     market.emplace_back(make_unique<Coin>("도지코인", 250, "코인"));
 }
@@ -219,7 +219,7 @@ string GameManager::Next() {
         // 뉴스 범위에 따른 효과 적용
         for (auto& inv : market) {
             if (n.type == 0) inv->ApplyNews(n.impact);
-            else if (n.type == 1 && inv->GetTheme() == n.target) inv->ApplyNews(n.impact);
+            else if (n.type == 1 && inv->GetTheme().find(n.target) != string::npos) inv->ApplyNews(n.impact);
             else if (n.type == 2 && inv->GetName() == n.target) inv->ApplyNews(n.impact);
         }
     } else {
@@ -250,16 +250,16 @@ void GameManager::ShowIntro() {
 
     SetCursorVisible(false);
     vector<string> stories = {
-        "부자가 되고 싶다.",
-        "내가 가진 돈 300만원.",
-        "주식으로 인생역전을 해보는거야!!"
+        "부자가 되고 싶다",
+        "남들은 다 떡상해서 ",
+        ""
     };
 
     for (const string& s : stories) {
         Clear();
         cout << "\n\n\n\n\n\n\n\n";
         ConsoleUI::CenterText(BOLD + s + RESET);
-        this_thread::sleep_for(chrono::milliseconds(3500));
+        this_thread::sleep_for(chrono::milliseconds(2500));
     }
 
     while (true) {

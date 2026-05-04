@@ -6,7 +6,6 @@
  */
 Stock::Stock(const string& n, float p, const string& t, float limit)
     : Investment(n, p, t), limitPercent(limit) {}
-
 /**
  * 주식의 일일 가격 변동 로직입니다.
  */

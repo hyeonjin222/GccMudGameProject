@@ -1,6 +1,6 @@
 #include "Investment.h"
 
-Investment::Investment(const string& n, float p, const string& t) 
+Investment::Investment(const string& n, float p, const string& t)
     : name(n), price(p), prevPrice(p), theme(t) {}
 
 Investment::~Investment() {}
