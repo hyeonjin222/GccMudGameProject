@@ -210,8 +210,8 @@ string GameManager::Next() {
     day++;
     for (auto& inv : market) inv->RecordPrevPrice(); // 전일 종가 기록
 
-    // 80% 확률로 경제 뉴스 발생
-    if (rand() % 10 < 8) {
+    // 90% 확률로 경제 뉴스 발생
+    if (rand() % 10 < 9) {
         const News& n = newsData.GetRandomNews();
         string color = (n.impact > 0) ? RED : (n.impact < 0) ? BLUE : "";
         news = color + "[속보] " + n.headline + RESET;
@@ -237,7 +237,7 @@ void GameManager::ShowIntro() {
         SetCursorVisible(true);
         Clear();
         cout << "\n\n\n\n\n";
-        ConsoleUI::CenterText(BOLD + RED + "[ 야수의 심장 : 영끌 시뮬레이터 ]" + RESET);
+        ConsoleUI::CenterText(BOLD + RED + "[ 주식 시뮬레이터 ]" + RESET);
         cout << "\n";
         ConsoleUI::CenterText(YELLOW + "1. 게임 시작" + RESET);
         ConsoleUI::CenterText("2. 게임 종료");
@@ -251,8 +251,9 @@ void GameManager::ShowIntro() {
     SetCursorVisible(false);
     vector<string> stories = {
         "부자가 되고 싶다",
-        "남들은 다 떡상해서 ",
-        ""
+        "내 전재산 300만원..",
+        "인생은 한방이야" ,
+        "[ 주식 시뮬레이터 ]"
     };
 
     for (const string& s : stories) {
