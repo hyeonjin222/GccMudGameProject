@@ -150,8 +150,8 @@ namespace ConsoleUI {
 
         // 1. 상단 정보 헤더
         std::cout << "================================================================================\n";
-        std::cout << " [ " << BOLD << day << "일차" << RESET << " | " << CYAN << "현금: " << RESET << PadL(Format((long long)cash), 11) << "원 | " 
-                  << CYAN << "주식자산: " << RESET << PadL(Format((long long)totalEval), 12) << "원 (" << pColor << (rate > 0 ? "+" : "") << (int)rate << "%" << RESET << ") ]\n";
+        std::cout << " [ " << BOLD << GREEN << day << "일차" << RESET << " | " << CYAN << "현금: " << YELLOW << PadL(Format((long long)cash), 11) << RESET << "원 | " 
+                  << CYAN << "주식자산: " << YELLOW << PadL(Format((long long)totalEval), 12) << RESET << "원 (" << pColor << (rate > 0 ? "+" : "") << (int)rate << "%" << RESET << ") ]\n";
         std::cout << "================================================================================\n";
 
         // 2. 메인 콘텐츠 영역
